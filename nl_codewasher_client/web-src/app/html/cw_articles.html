@@ -1,0 +1,8 @@
+<div class="row">
+    <section id="articles-main" class="col-md-12">
+    	<h3><span>{{pageCtrl.page.contents['title'].title}}</span></h3>
+       	<article class="article-list" ng-repeat="article in pageCtrl.page.articleSet">
+           	<img class="article_icons" src="{{article.iconPath}}"><a ng-click="pageCtrl.getArticle(article.id)">{{article.title}}</a>
+    	</article>
+    </section>
+</div>

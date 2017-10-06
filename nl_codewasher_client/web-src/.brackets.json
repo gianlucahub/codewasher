@@ -1,0 +1,8 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/NL/NL_WS2/neues_leben_codewasher/web-src/bower_components/jquery/src/traversing/var/rneedsContext.js",
+        "C:/NL/NL_WS2/neues_leben_codewasher/web-src/bower_components/jquery/src/core/init.js",
+        "C:/NL/NL_WS4/nl_codewasher_client/web-src/bower_components/jquery/src/attributes/val.js",
+        "C:/NL/NL_WS4/nl_codewasher_client/web-src/bower_components/jquery/src/wrap.js"
+    ]
+}

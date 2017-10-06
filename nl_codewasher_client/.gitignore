@@ -1,0 +1,8 @@
+/target/
+/web-src/node_modules/
+/web-src/bower_components/
+/src/main/webapp/
+/.project
+/
+.classpath
+/.settings/

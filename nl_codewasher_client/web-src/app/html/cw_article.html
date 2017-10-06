@@ -1,0 +1,89 @@
+<div class="row">
+    <section id="article-main" class="col-md-8">
+        <article>
+            <section id="article-header">
+                <div class="article-label article-title container-underlined">{{articleCtrl.article.title}}</div>
+                <div class="article-label article-author container-underlined">Gianluca D. - {{articleCtrl.article.articleDate | date:"dd/MM/yyyy"}}</div>
+                <div class="article-content-row container-underlined">{{articleCtrl.article.content}}</div>
+            </section>
+            <section id="article-content">
+                <div ng-repeat="articleContent in articleCtrl.article.articleContents">
+                    <div class="article-content-row">{{articleContent.content}}</div>
+                    <div class="article-content-row-code" ng-show="articleContent.contentCode">
+                        <pre><code class="prettyprint">{{articleContent.contentCode}}</code></pre>
+                    </div>
+                    <div class="article-content-row-code" ng-show="articleContent.contentImage">
+                        <img width="60%" ng-src="{{articleContent.contentImage}}" />
+                    </div>
+                </div>
+            </section>
+            <section id="article-replies" ng-show="articleCtrl.article.repliable">
+                <section id="article-replies-list" class="article-reply-table" ng-show="articleCtrl.article.replies.length">
+                    <div class="article-reply-rows" ng-repeat="reply in articleCtrl.article.replies">
+                        <div>
+                            <span>Posted by: {{reply.name}}</span> 
+                            <span>Date: {{reply.replyDate | date:"dd/MM/yyyy HH:mm"}}</span>
+                        </div>
+                        <div>
+                            <span>{{reply.content}}</span>
+                        </div>
+                    </div>
+                </section>
+                <input type="button" ng-show="!articleCtrl.replyInputOn" ng-click="articleCtrl.createEmptyReply(articleCtrl.article.id)" value="Post a comment" />
+                <section id="article-reply-form" class="article-reply-table" ng-show="articleCtrl.replyInputOn">
+                    <section id="article-reply-form-fields">
+                    	<div>
+                        	<div class="article-reply-head">
+                            	<span class="fieldRequired">Name</span> 
+                            	<span><input type="text" id="replyName" name="replyName" placeholder="enter your name" ng-model="articleCtrl.replyInput.name" required ng-maxlength="10" /></span>
+                        	</div>
+                        	<div class="article-reply-message" ng-messages="codewasherForm.replyName.$dirty && codewasherForm.replyName.$error" ng-messages-multiple style="color: maroon" role="alert">
+                            	<span>
+									<div ng-message="required">Name required!</div>
+									<div ng-message="maxlength">Name is too long!</div>
+								</span>
+                        	</div>
+                    	</div>
+                    	<div>
+                        	<div class="article-reply-head">
+                            	<span class="fieldRequired">Content</span> 
+                            	<span><textarea id="replyContent" name="replyContent" placeholder="enter your comment" ng-model="articleCtrl.replyInput.content" required	ng-maxlength="400"></textarea></span>
+                        	</div>
+                        	<div class="article-reply-message" ng-messages="codewasherForm.replyContent.$dirty && codewasherForm.replyContent.$error" ng-messages-multiple style="color: maroon" role="alert">
+                            	<span>
+									<div ng-message="required">Content required!</div>
+									<div ng-message="maxlength">Content is too long!</div>
+								</span>
+                        	</div>
+                    	</div>
+                   </section> 
+                    <section id="article-reply-form-buttons">
+                        <span>
+                        	<input type="button" ng-disabled="codewasherForm.$invalid" ng-click="articleCtrl.addReply(articleCtrl.replyInput)" value="Post a comment" /></span> 
+                        <span>
+                        	<input type="button" ng-click="articleCtrl.cancelReply()" value="Cancel" /></span>
+                    </section>
+                </section>
+            </section>
+        </article>
+    </section>
+    <aside id="article-menu" class="col-md-4">
+    	<uib-accordion>
+        	<div uib-accordion-group class="panel-default" heading="Java">
+            	<div class="article-menu-link" ng-repeat="(key, value) in articleCtrl.article.articles['JAVA']">
+                	<a ng-click="articleCtrl.getArticle(value.id)">{{value.title}}</a>
+                </div>
+            </div>
+            <div uib-accordion-group class="panel-default" heading="Web development">
+            	<div class="article-menu-link" ng-repeat="(key, value) in articleCtrl.article.articles['WEBDEVELOPMENT']">
+                	<a ng-click="articleCtrl.getArticle(value.id)">{{value.title}}</a>
+                </div>
+            </div>
+            <div uib-accordion-group class="panel-default" heading="Angular Js">
+            	<div class="article-menu-link" ng-repeat="(key, value) in articleCtrl.article.articles['ANGULARJS']">
+                	<a ng-click="articleCtrl.getArticle(value.id)">{{value.title}}</a>
+                </div>
+            </div>
+		</uib-accordion>
+    </aside>
+</div>

@@ -1,0 +1,45 @@
+{
+  "name": "nl.codewasher",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular-smart-table": "^2.1.8",
+    "angular-messages": "^1.6.4",
+    "angular-bootstrap": "^2.5.0",
+    "google-code-prettify": "^1.0.5"
+  },
+  "devDependencies": {},
+  "overrides": {
+    "angular": {
+      "main": "angular.min.js"
+    },
+    "angular-route": {
+      "main": "angular-route.min.js"
+    },
+    "angular-resource": {
+      "main": "angular-resource.min.js"
+    },
+    "angular-smart-table": {
+      "main": "./dist/smart-table.min.js"
+    },
+    "angular-messages": {
+      "main": "angular-messages.min.js"
+    },
+    "angular-bootstrap": {
+      "main": [
+        "ui-bootstrap.min.js",
+        "ui-bootstrap-tpls.min.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "./dist/js/bootstrap.min.js",
+        "./dist/css/*.min.*",
+        "./dist/fonts/*.*"
+      ]
+    }
+  }
+}

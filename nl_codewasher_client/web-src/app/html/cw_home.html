@@ -1,0 +1,80 @@
+<div class="row">
+	<section id="home-main" class="col-md-8">
+		<section id="home-articles">
+			<article ng-repeat="(key, value) in pageCtrl.page.articles['JAVA']">
+				<img class="article_icons" src="{{value.iconPath}}"><a ng-click="pageCtrl.getArticle(value.id)">{{value.title}}</a>
+			</article>
+			<article ng-repeat="(key, value) in pageCtrl.page.articles['ANGULARJS']">
+				<img class="article_icons" src="{{value.iconPath}}"><a ng-click="pageCtrl.getArticle(value.id)">{{value.title}}</a>
+			</article>
+			<article ng-repeat="(key, value) in pageCtrl.page.articles['WEBDEVELOPMENT']">
+				<img class="article_icons" src="{{value.iconPath}}"><a ng-click="pageCtrl.getArticle(value.id)">{{value.title}}</a>
+			</article>
+		</section>
+		<section id="home-about">
+			<article>
+				<h3>
+					<span>About </span><span>Gianluca</span>
+				</h3>
+				{{pageCtrl.page.contents['aboutme'].content}}
+			</article>
+			<article>
+				<h3>
+					<span>My </span><span>career</span>
+				</h3>
+				<img id="my_image" src="res/style/images/cw_my_image.jpg">
+				{{pageCtrl.page.contents['career'].content}}
+			</article>
+			<article>
+				<h3>
+					<span>Contact </span><span>me</span><span>!!</span>
+				</h3>
+				{{pageCtrl.page.contents['contact'].content}}
+			</article>
+		</section>
+	</section>
+	<aside id="home-tech-stack" class="col-md-4">
+		<article>
+			<h3>
+				<span>Why </span><span>this </span><span>website?</span>
+			</h3>
+			{{pageCtrl.page.contents['why'].content}}
+		</article>
+		<article>
+			<h3>
+				<span>The </span><span>technical </span><span>stack</span>
+			</h3>
+			{{pageCtrl.page.contents['techstack'].content}}
+		</article>
+		<article>
+			<h3>
+				<span>The </span><span>pages </span>
+			</h3>
+			{{pageCtrl.page.contents['pages'].content}}
+		</article>
+		<article>
+			<h3>
+				<span>The </span><span>server </span><span>side</span>
+			</h3>
+			{{pageCtrl.page.contents['serverside'].content}}
+		</article>
+		<article>
+			<h3>
+				<span>The </span><span>client </span><span>side</span>
+			</h3>
+			{{pageCtrl.page.contents['clientside'].content}}
+		</article>
+		<article>
+			<h3>
+				<span>The </span><span>builds </span>
+			</h3>
+			{{pageCtrl.page.contents['build'].content}}
+		</article>
+		<article>
+			<h3>
+				<span>What </span><span>is </span><span>next?</span>
+			</h3>
+			{{pageCtrl.page.contents['next'].content}}
+		</article>
+	</aside>
+</div>

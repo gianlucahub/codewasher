@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="cw.app">
+
+<head RouterController as routerCtrl>
+    <base href="http://www.codewasher.com/nl_codewasher_client/">
+    <!-- <base href="http://www.codewasher.com/nl_codewasher_client/">  -->
+    <!-- <base href="http://localhost:8080/nl_codewasher_client/"> -->
+
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="$description">
+    <meta name="author" content="Gianluca De Vecchi">
+    <meta name="keywords" content="$keyWords">
+    <meta name="robots" content="noarchive">
+    <meta name="googlebot" content="noarchive">
+    
+    <meta property="og:url"           content="$facebookUrl" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="$facebookTitle" />
+    <meta property="og:description"   content="$facebookDescription" />
+    <meta property="og:image"         content="$facebookImage" />
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/google-code-prettify/bin/prettify.min.js"></script>
+    <!-- endbower -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/google-code-prettify/bin/prettify.min.css" />
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="res/js/nl_codewasher.js"></script>
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="res/style/css/nl_codewasher.min.css">
+    <!-- endinject -->
+    
+</head>
+
+<body>
+	<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+    <header>
+        <div ng-controller="RouterController as routerCtrl">
+            <h1><span>The </span><span>Code </span><span>Washer</span></h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li><a selectedmenu ng-click="routerCtrl.toPage('home')"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a selectedmenu ng-click="routerCtrl.toPageArticles('JAVA')">Java</a></li>
+                        <li><a selectedmenu ng-click="routerCtrl.toPageArticles('ANGULARJS')">Angular</a></li>
+                        <li><a selectedmenu ng-click="routerCtrl.toPageArticles('WEBDEVELOPMENT')">Web development</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="facebook-section" class="container-underlined">
+                <div class="fb-like facebook-menu" data-href="{{routerCtrl.routerService.url}}" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div>
+            </div>
+            <div id="facebook-section-mobile" class="container-underlined">
+                <div class="fb-like facebook-menu" data-href="{{routerCtrl.routerService.url}}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+            </div>
+        </div>
+    </header>
+    <main id="web-container" class="container-fluid">
+        <form name="codewasherForm">
+            <div ng-view autoscroll></div>
+        </form>
+    </main>
+    <footer>
+        codewasher.com 5.1.0 2017 - All rights reserved
+    </footer>
+</body>
+
+</html>
